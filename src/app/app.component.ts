@@ -14,4 +14,8 @@ export class AppComponent {
   title = 'Easytask';
 
   users = DUMMY_USERS;
+
+  onSelectUser = (id:string) =>{
+    alert(`Select user with ID ${id}`)
+  }
 }
