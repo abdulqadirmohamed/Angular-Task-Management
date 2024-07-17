@@ -1,23 +1,15 @@
 <main class="w-2/5 mx-auto my-4 flex gap-6">
     <ul class="flex flex-col gap-2">
-        <!-- @for (user of users; track $index) {
-        <li><app-user /></li>
-        } -->
+        @for (user of users; track user.id) {
         <li>
-            <app-user [id]="users[0].id" [avater]="users[0].avatar" [name]="users[0].name" (select)="onSelectUser($event)"/>
+            <app-user [user]="user" (select)="onSelectUser($event)" />
         </li>
-        <li>
-            <app-user [id]="users[1].id" [avater]="users[1].avatar" [name]="users[1].name" (select)="onSelectUser($event)" />
-        </li>
-        <li>
-            <app-user [id]="users[2].id" [avater]="users[2].avatar" [name]="users[2].name" (select)="onSelectUser($event)"/>
-        </li>
-        <li>
-            <app-user [id]="users[3].id" [avater]="users[3].avatar" [name]="users[3].name" (select)="onSelectUser($event)"/>
-        </li>
-        <li>
-            <app-user [id]="users[4].id" [avater]="users[4].avatar" [name]="users[4].name" (select)="onSelectUser($event)" />
-        </li>
+        }
+
     </ul>
-    <app-tasks [name]="SelectedUser.name"/>
+    @if(SelectedUser){
+    <app-tasks [name]="SelectedUser.name" />
+    } @else {
+        <p>Select a user to see their task</p>
+    }
 </main>

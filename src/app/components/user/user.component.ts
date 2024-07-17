@@ -4,6 +4,12 @@ import { single } from 'rxjs';
 
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length)
 
+type Tuser = {
+  id: string,
+  name: string,
+  avater?: string
+}
+
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -12,17 +18,16 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length)
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  @Input({required: true}) id!:string
-  @Input({ required: true }) avater!: string;
-  @Input({ required: true }) name!: string;
+
+  @Input({required: true}) user!: Tuser;
 
   @Output() select = new EventEmitter()
 
   get imagePath(){
-    return 'assets/users/' + this.avater;
+    return 'assets/users/' + this.user.avater
   }
 
   onSelectUser() {
-    this.select.emit(this.id)
+    this.select.emit(this.user?.id)
   }
 }

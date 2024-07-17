@@ -1,6 +1,7 @@
 <div>
-    <button (click)="onSelectUser()"  class="w-72 bg-[#2F233F] hover:bg-[#31066B] px-3 py-2 rounded-md text-white flex items-center gap-2">
-        <img class="w-10 rounded-full ring-2 ring-[#371661]" [src]="imagePath" [alt]="name">
-        <span>{{name}}</span>
+    <button (click)="onSelectUser()"
+        class="w-72 bg-[#2F233F] hover:bg-[#31066B] px-3 py-2 rounded-md text-white flex items-center gap-2">
+        <img class="w-10 rounded-full ring-2 ring-[#371661]" [src]="imagePath" [alt]="user.name.slice(0, 1)">
+        <span>{{user.name}}</span>
     </button>
 </div>
